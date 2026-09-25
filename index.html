@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commute-Home</title>
+  <link rel="stylesheet" href="estate.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      🏠Commute-Home    
+    </div>
+    <div class="searchcontainer">
+      <label for="workplace">
+        Where do you work? 
+      </label>
+      <input type="text" id="workplace" placeholder="Enter workplace address (e.g. Gulshan, Banani, Motijheel)">
+      <button id="search-button">Search</button>
+    </div>
+  </header>
+  <main class="appcontainer">
+    <aside class="sidebar">
+      <div class="sidebarheader">
+        <h2>Properties</h2>
+        <p id="property-count">0 properties</p>
+      </div>
+      <div class="filter-container">
+        <label for="area-filter">
+          Area
+        </label>
+        <select id="area-filter">
+          <option value="all">
+            All Areas
+          </option>
+          <option value="Banani">
+           Banani
+          </option>
+          <option value="Gulshan">
+            Gulshan
+          </option>
+          <option value="Dhanmondi">
+            Dhanmondi
+          </option>
+          <option value="Mohakhali">
+            Mohakhali
+          </option>
+        </select>
+      </div>
+      <div id="property-list"></div>
+    </aside>
+    <section class="mapcontainer">
+      <div id="map"></div>
+    </section>
+
+  </main>
+  <div id="property-modal" class="property-modal">
+    <div class="property-modal-content">
+      <button id="close-modal" class="close-modal">✕</button>
+      <div class="property-image-container">
+        <img id="modal-main-image" class="modal-main-image" src="" alt="Apartment">
+      </div>
+      <div id="modal-thumbnails" class="modal-thumbnails"></div>
+      <div class="property-details">
+        <h2 id="modal-title">Apartment Title</h2>
+        <p id="modal-location" class="modal-location">Location</p>
+        <h3 id="modal-price" class="modal-price">0 BDT/month</h3>
+        <div class="modal-commute">
+          <div>🚗 <strong id="modal-commute-time">--</strong></div>
+          <div>📍 <strong id="modal-commute-distance">--</strong></div>
+        </div>
+        <div class="property-info-grid">
+          <div class="property-info-item">
+            <span>🛏️</span>
+            <p><strong id="modal-bedrooms">0</strong> Bedrooms</p>
+          </div>
+          <div class="property-info-item">
+            <span>🛁</span>
+            <p><strong id="modal-bathrooms">0</strong> Bathrooms</p>
+          </div>
+          <div class="property-info-item">
+            <span>📐</span>
+            <p><strong id="modal-size">0</strong> sq ft</p>
+          </div>
+          <div class="property-info-item">
+            <span>🏢</span>
+            <p><strong id="modal-floor">0</strong> Floor</p>
+          </div>
+        </div>
+
+        <div class="property-amenities">
+          <h3>Amenities</h3>
+          <div id="modal-amenities"></div>
+        </div>
+
+        <div class="property-description">
+          <h3>Description</h3>
+          <p id="modal-description">Property description</p>
+        </div>
+
+        <div class="property-actions">
+          <button id="view-map-button" class="view-map-button">🗺️ View Route</button>
+          <button id="favorite-button" class="favorite-button">♡ Favorite</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="estate.js"></script>
+</body>
+</html>
